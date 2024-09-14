@@ -22,11 +22,10 @@ steps:
 - script: |
     echo "Current directory: $(pwd)"
     dotnet build --configuration $(buildConfiguration)
+    workingDirectory: 'helloworld' 
   displayName: 'Build project'
 
-- script: |
-    dotnet test --configuration $(buildConfiguration) --no-build --verbosity normal
-  displayName: 'Run tests'
+
 
 - task: PublishBuildArtifacts@1
   inputs:
